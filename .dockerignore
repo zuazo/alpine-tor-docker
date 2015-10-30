@@ -1,0 +1,6 @@
+.git
+.gitignore
+LICENSE
+*.log
+*.md
+*.sh

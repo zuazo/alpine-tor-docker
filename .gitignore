@@ -1,0 +1,9 @@
+.bundle
+.cache
+coverage
+doc
+*.gem
+Gemfile.lock
+*.log
+tmp
+.yardoc

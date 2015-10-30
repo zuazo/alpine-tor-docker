@@ -1,0 +1,14 @@
+#!/bin/sh
+
+set -e
+
+echo -n 'Waiting for Tor to boot...'                                            
+while ! grep -qF '100%: Done' "$TOR_LOG_DIR/current" 2> /dev/null                   
+do                                                                              
+  sleep 1                                                                       
+  echo -n .                                                                     
+done                                                                            
+echo                                                                            
+
+# Use Tor for all DNS queries:
+echo 'nameserver 127.0.0.1' > /etc/resolv.conf

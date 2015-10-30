@@ -1,0 +1,21 @@
+#!/bin/sh
+
+set -e
+
+case "${1}" in
+-h|--help)
+  echo 'Usage:' >&2
+  echo "  $0 [-h] [-u USER] COMMAND [...]" >&2
+  exit 1
+  ;;
+-u|--user)
+  RUN_AS="${2}"
+  shift 2
+  tor_boot
+  exec su -l "${RUN_AS}" -c 'exec /usr/bin/proxychains "$0" "$@"' -- "$@"
+  ;;
+*)
+  tor_boot
+  exec /usr/bin/proxychains "${@}"
+  ;;
+esac
