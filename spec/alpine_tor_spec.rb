@@ -7,7 +7,7 @@ describe 'alpine-tor' do
     its(:cmd) { should include '/bin/sh' }
     its(:env) { should include 'TOR_LOG_DIR' }
 
-    describe docker_run('alpine-tor') do
+    describe docker_run('alpine-tor', family: :alpine) do
       tor_conf_file = '/etc/tor/torrc'
       proxychains_conf_file = '/etc/proxychains/proxychains.conf'
       dnsmasq_conf_file = '/etc/dnsmasq.conf'
