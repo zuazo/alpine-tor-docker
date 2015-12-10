@@ -2,8 +2,7 @@ require 'dockerspec'
 require 'dockerspec/serverspec'
 
 describe 'alpine-tor' do
-describe docker_build('.', tag: 'alpine-tor') do
-
+  describe docker_build('.', tag: 'alpine-tor') do
     its(:entrypoint) { should include '/usr/bin/proxychains_wrapper' }
     its(:cmd) { should include '/bin/sh' }
     its(:env) { should include 'TOR_LOG_DIR' }
@@ -32,8 +31,8 @@ describe docker_build('.', tag: 'alpine-tor') do
           expect(command('which tor').exit_status).to eq 0
         end
 
-        # Requires a space to differentiate it from the "wrapper_proxichains" and
-        # "s6 tor" processes.
+        # Requires a space to differentiate it from the "wrapper_proxichains"
+        # and "s6 tor" processes.
         describe process('tor ') do
           it { should be_running }
           its(:user) { should eq 'tor' }
@@ -49,8 +48,8 @@ describe docker_build('.', tag: 'alpine-tor') do
           it { should be_file }
           it { should be_owned_by 'tor' }
           its(:content) { should match(/^SocksPort +9050/) }
-          its(:content) { should match %r{^DataDirectory +/var/lib/tor} }
-          its(:content) { should match %r{^DNSPort +9053} }
+          its(:content) { should match(%r{^DataDirectory +/var/lib/tor}) }
+          its(:content) { should match(/DNSPort +9053/) }
         end
       end
 
@@ -116,8 +115,9 @@ describe docker_build('.', tag: 'alpine-tor') do
         let(:http_check_tor_cmd) { "proxychains_wrapper wget -O- #{url}" }
 
         it 'detects tor' do
-          expect(command(http_check_tor_cmd).stdout)
-            .to contain('Congratulations. This browser is configured to use Tor.')
+          expect(command(http_check_tor_cmd).stdout).to contain(
+            'Congratulations. This browser is configured to use Tor.'
+          )
         end
       end
     end
