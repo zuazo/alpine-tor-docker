@@ -4,7 +4,4 @@ sudo: required
 
 services: docker
 
-# https://github.com/zuazo/kitchen-in-travis-native/issues/1#issuecomment-142455888
-before_script: sudo iptables -L DOCKER || sudo iptables -N DOCKER
-
 script: travis_retry bundle exec rspec
