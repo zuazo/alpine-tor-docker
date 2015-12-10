@@ -12,10 +12,10 @@ case "${1}" in
   RUN_AS="${2}"
   shift 2
   tor_boot
-  exec su -l "${RUN_AS}" -c 'exec /usr/bin/proxychains "$0" "$@"' -- "$@"
+  exec su -l "${RUN_AS}" -c 'exec proxychains "$0" "$@"' -- "$@"
   ;;
 *)
   tor_boot
-  exec /usr/bin/proxychains "${@}"
+  exec proxychains "${@}"
   ;;
 esac
