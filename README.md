@@ -1,5 +1,5 @@
 ### Alpine Tor Docker Container
-[![Source Code](https://img.shields.io/badge/source-GitHub-blue.svg?style=flat)](https://github.com/zuazo/alpine-tor-docker) [![Docker Repository on Quay.io](https://quay.io/repository/zuazo/alpine-tor/status "Docker Repository on Quay.io")](https://quay.io/repository/zuazo/alpine-tor) [![Build Status](http://img.shields.io/travis/zuazo/alpine-tor-docker.svg?style=flat)](https://travis-ci.org/zuazo/alpine-tor-docker)
+[![GitHub](http://img.shields.io/badge/github-zuazo/alpine--tor--docker-blue.svg?style=flat)](https://github.com/zuazo/alpine-tor-docker) [![Docker Repository on Quay.io](https://quay.io/repository/zuazo/alpine-tor/status "Docker Repository on Quay.io")](https://quay.io/repository/zuazo/alpine-tor) [![Build Status](http://img.shields.io/travis/zuazo/alpine-tor-docker.svg?style=flat)](https://travis-ci.org/zuazo/alpine-tor-docker)
 
 A minimal [Docker](https://www.docker.com/) image (~13MB) with the [Tor](https://www.torproject.org/) daemon running in the background.
 
