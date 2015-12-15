@@ -73,6 +73,12 @@ Then build and run the image:
     Service detection performed. Please report any incorrect results at http://nmap.org/submit/ .
     Nmap done: 1 IP address (1 host up) scanned in 19.04 seconds
 
+##### Other Image Examples
+
+Other images created from this image:
+
+- [`irssi-tor`](https://hub.docker.com/r/zuazo/irssi-tor/builds/)
+
 ##### Adding New Proxies to ProxyChains
 
 ```Dockerfile
