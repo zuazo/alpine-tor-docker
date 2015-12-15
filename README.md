@@ -92,7 +92,7 @@ Instead of installing the image from Docker Hub, you can build the image from so
 #### Read-only Environment Variables Used at Build Time
 
 * `DNSMASQ_CONF`: Dnsmasq configuration file path.
-* `DNSMASQ_LOG_DIR` [`s6-log`](http://skarnet.org/software/s6/s6-log.html) logs directory for the Dnsmasq daemon.
+* `DNSMASQ_LOG_DIR`: [`s6-log`](http://skarnet.org/software/s6/s6-log.html) logs directory for the Dnsmasq daemon.
 * `PROXYCHAINS_CONF`: ProxyChains configuration file path.
 * `TOR_CONF`: Tor configuration file path.
 * `TOR_LOG_DIR`: [`s6-log`](http://skarnet.org/software/s6/s6-log.html) logs directory for the Tor daemon.
