@@ -1,4 +1,4 @@
-FROM alpine:3.2
+FROM alpine:3.4
 MAINTAINER Xabier de Zuazo "xabier@zuazo.org"
 
 ENV PROXYCHAINS_CONF=/etc/proxychains/proxychains.conf \
@@ -7,16 +7,16 @@ ENV PROXYCHAINS_CONF=/etc/proxychains/proxychains.conf \
     DNSMASQ_CONF=/etc/dnsmasq.conf \
     DNSMASQ_LOG_DIR=/var/log/s6/dnsmasq
 
-RUN echo '@edge http://nl.alpinelinux.org/alpine/edge/main' >> \
+RUN echo '@edge http://dl-cdn.alpinelinux.org/alpine/edge/main' >> \
       /etc/apk/repositories && \
-    echo '@testing http://nl.alpinelinux.org/alpine/edge/testing' >> \
+    echo '@edge http://dl-cdn.alpinelinux.org/alpine/edge/community' >> \
       /etc/apk/repositories && \
     apk add --update \
       dnsmasq \
       openssl \
       proxychains-ng \
-      s6@edge \
-      tor@testing && \
+      s6 \
+      tor@edge && \
     rm -rf /var/cache/apk/*
 
 COPY etc/torrc $TOR_CONF
